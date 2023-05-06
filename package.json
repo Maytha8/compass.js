@@ -1,0 +1,34 @@
+{
+  "name": "compass.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "test": "pnpm run build && jest",
+    "coverage": "pnpm run test --coverage --coverageProvider=v8",
+    "lint": "eslint .",
+    "prettier": "prettier -w src/**.ts tests/**.ts"
+  },
+  "keywords": [],
+  "author": "Maytham Alsudany <44939173+Maytha8@users.noreply.github.com>",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "@types/tough-cookie": "^4.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "eslint": "^8.39.0",
+    "eslint-plugin-unicorn": "^46.0.0",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "tough-cookie": "^4.1.2",
+    "undici": "^5.22.0"
+  }
+}

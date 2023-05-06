@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES2022",
+        "module": "CommonJS",
+        "declaration": true,
+        "sourceMap": true
+    },
+    "include": ["src"],
+    "exclude": ["dist"]
+}
