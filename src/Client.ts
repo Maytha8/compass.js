@@ -5,6 +5,7 @@ import { ClientOptions } from './ClientOptions';
 import { AuthenticationResult } from './types/AuthenticationResult';
 import { Session, SessionData } from './Session';
 import { UserManager } from './managers/UserManager';
+import { CookieJar } from 'tough-cookie';
 
 export class Client {
   /**
@@ -45,6 +46,18 @@ export class Client {
       session = JSON.parse(session) as SessionData;
     }
     instance._session = await Session.fromJSON(instance, session);
+    return instance;
+  }
+
+  static async fromData(
+    url: string,
+    userId: number,
+    cookieJar: CookieJar,
+    options?: ClientOptions
+  ) {
+    const instance = new Client(url, options);
+    instance._session = new Session(instance, userId);
+    instance._request.cookieJar = cookieJar;
     return instance;
   }
 
