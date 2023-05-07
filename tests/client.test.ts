@@ -1,4 +1,5 @@
 import { setGlobalDispatcher } from 'undici';
+import { CookieJar } from 'tough-cookie';
 import { agent } from './mock-agent';
 import {
   AuthError,
@@ -27,6 +28,8 @@ describe('Client', function () {
 
     expect(client).toHaveProperty('users');
     expect(client.users).toBeInstanceOf(UserManager);
+
+    expect(client.isAuthenticated()).resolves.toEqual(false);
   });
 
   it('should throw error when server returns error HTTP status code', async function () {
@@ -51,10 +54,17 @@ describe('Client', function () {
   });
 
   it('should successfully login', async function () {
-    const client = new Client('https://example.compass.education');
+    const options = {
+      request: { headers: { Accept: 'application/json' } },
+    };
+    const client = new Client('https://example.compass.education', options);
     await client.login('john.doe', 'correctpassword');
 
-    expect(await client.isAuthenticated(true)).toEqual(true);
+    // Shallow check
+    expect(client.isAuthenticated(false)).resolves.toEqual(true);
+
+    // Deep check
+    expect(client.isAuthenticated(true)).resolves.toEqual(true);
 
     expect(client.session).toBeInstanceOf(Session);
     expect(client.session).toHaveProperty('userId', 123);

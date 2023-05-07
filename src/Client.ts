@@ -13,12 +13,7 @@ export class Client {
    * @param options Configuration to pass to managers.
    */
   constructor(url: string, options?: ClientOptions) {
-    this._request = new RequestManager(
-      this,
-      url,
-      options?.request?.cookieJar,
-      options?.request?.requestOptions
-    );
+    this._request = new RequestManager(this, url, options?.request);
     this._users = new UserManager(this);
   }
 
@@ -81,11 +76,8 @@ export class Client {
    * Whether client instance is authenticated.
    * @param deepCheck When `true`, makes a request to test if the session is valid.
    */
-  async isAuthenticated(deepCheck = false): Promise<boolean> {
+  async isAuthenticated(deepCheck = true): Promise<boolean> {
     if (!this.session) return false;
-    const cookies = await this.request.cookieJar.getCookies(this.request.url);
-    const cookie = cookies.find((cookie) => cookie.key === 'ASP.NET_SessionId');
-    if (new Date() > cookie.expires) return false;
     if (!deepCheck) return true;
     const { statusCode } = await this.request.request(
       '/',

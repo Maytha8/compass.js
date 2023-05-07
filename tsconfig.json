@@ -4,7 +4,8 @@
         "target": "ES2022",
         "module": "CommonJS",
         "declaration": true,
-        "sourceMap": true
+        "sourceMap": true,
+	"incremental": true
     },
     "include": ["src"],
     "exclude": ["dist"]

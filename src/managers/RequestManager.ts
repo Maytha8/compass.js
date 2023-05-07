@@ -7,14 +7,12 @@ export class RequestManager extends BaseManager {
   constructor(
     client: Client,
     public readonly url: string,
-    cookieJar?: CookieJar,
     public requestOptions?: RequestOptions
   ) {
     super(client);
-    this.cookieJar = cookieJar || new CookieJar();
   }
 
-  public cookieJar: CookieJar;
+  public cookieJar = new CookieJar();
 
   async request(
     path: string,

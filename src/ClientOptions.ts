@@ -1,9 +1,11 @@
-import { CookieJar } from 'tough-cookie';
 import { RequestOptions } from './managers/RequestManager';
 
+/**
+ * Client options to pass to managers.
+ */
 export interface ClientOptions {
-  request?: {
-    cookieJar?: CookieJar;
-    requestOptions?: RequestOptions;
-  };
+  /**
+   * Request options to pass to `RequestManager`.
+   */
+  request?: RequestOptions;
 }

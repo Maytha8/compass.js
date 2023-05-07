@@ -1,4 +1,3 @@
-import { CookieJar } from 'tough-cookie';
 import { Client } from '../Client';
 
 export class BaseManager {
