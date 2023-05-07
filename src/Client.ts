@@ -132,10 +132,6 @@ export class Client {
     if (!('roles' in response) || response.roles.length !== 1) {
       throw new AuthError('No roles returned from server.');
     }
-    this._session = new Session(
-      this,
-      response.roles[0].userId,
-      response.roles[0].baseRole
-    );
+    this._session = new Session(this, response.roles[0].userId);
   }
 }
