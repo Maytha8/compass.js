@@ -10,7 +10,8 @@
     "test": "pnpm run build && jest",
     "coverage": "pnpm run test --coverage --coverageProvider=v8",
     "lint": "eslint .",
-    "prettier": "prettier -w src/**.ts tests/**.ts"
+    "prettier": "prettier -w src/**.ts tests/**.ts",
+    "prepare": "pnpm build"
   },
   "keywords": [],
   "author": "Maytham Alsudany <44939173+Maytha8@users.noreply.github.com>",
