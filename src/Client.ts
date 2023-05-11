@@ -49,7 +49,7 @@ export class Client {
     return instance;
   }
 
-  static async fromData(
+  static fromData(
     url: string,
     userId: number,
     cookieJar: CookieJar,
