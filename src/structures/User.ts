@@ -66,7 +66,6 @@ export class User {
 
   toJSON(): UserDetailsBlob {
     return {
-      __type: 'UserDetailsBlob',
       chroniclePinnedCount: this.chroniclePinnedCount,
       userACTStudentID: this.ACTStudentID,
       userAccessRestrictions: this.accessRestrictions,
