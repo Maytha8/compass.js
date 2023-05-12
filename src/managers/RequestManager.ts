@@ -17,7 +17,7 @@ export class RequestManager extends BaseManager {
   async request(
     path: string,
     requestOptions?: RequestOptions,
-    setCookie = true
+    setCookie = false
   ) {
     const url = String(new URL(path, this.url));
     const response = await request(url, {

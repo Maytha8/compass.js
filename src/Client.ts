@@ -119,7 +119,8 @@ export class Client {
         headers: {
           'content-type': 'application/json',
         },
-      }
+      },
+      true
     );
     if (statusCode !== 200) {
       throw new CompassError('Server did not return a successful status code.');
