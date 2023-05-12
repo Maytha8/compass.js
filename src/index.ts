@@ -31,3 +31,5 @@ export * from './structures/User';
 export * from './types/AuthenticatedUserRole';
 export * from './types/AuthenticationResult';
 export * from './types/UserDetailsBlob';
+export * from './types/TimelinePeriod';
+export * from './types/ExtendedStatus';
