@@ -1,4 +1,5 @@
 import { Client } from '../Client';
+import { TimelinePeriod } from '../types/TimelinePeriod';
 import { UserDetailsBlob } from '../types/UserDetailsBlob';
 
 export class User {
@@ -27,7 +28,7 @@ export class User {
   squarePhotoPath: string;
   status: number;
   username: string;
-  timeLinePeriods: Array<unknown>; // Unknown
+  timeLinePeriods: Array<TimelinePeriod>;
   VSN?: unknown; // Unknown
   yearLevel: string;
   yearLevelId: number;
@@ -64,7 +65,7 @@ export class User {
     this.yearLevelId = data.userYearLevelId;
   }
 
-  toJSON(): UserDetailsBlob {
+  toJSON(): Omit<UserDetailsBlob, '__type'> {
     return {
       chroniclePinnedCount: this.chroniclePinnedCount,
       userACTStudentID: this.ACTStudentID,

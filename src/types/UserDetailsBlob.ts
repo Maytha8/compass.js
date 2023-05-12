@@ -1,3 +1,5 @@
+import { TimelinePeriod } from './TimelinePeriod';
+
 export interface UserDetailsBlob {
   __type: 'UserDetailsBlob';
   chroniclePinnedCount: number;
@@ -25,7 +27,7 @@ export interface UserDetailsBlob {
   userSquarePhotoPath: string;
   userStatus: number;
   userSussiID: string;
-  userTimeLinePeriods: Array<unknown>; // Unknown
+  userTimeLinePeriods: Array<TimelinePeriod>;
   userVSN?: unknown; // Unknown
   userYearLevel: string;
   userYearLevelId: number;
